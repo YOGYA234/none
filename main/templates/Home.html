@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exchange | BIT Venus swap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--CSS STYLE FILE-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='Home.css') }}?v=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.0.0"></script>
+    <!--FAVICON FILE-->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <!--HEADER CONTENT AND NAVBAR / DROPDOWN(S)-->
+    <header>
+        <div class="navbar">
+            <!--LOGO FILE-->
+            <img src="{{ url_for('static' , filename='Logo.png')}}" alt="Logo" class="logo">
+            <div class="searchbar">
+                <i id="sei" class="fa-solid fa-magnifying-glass"></i>
+                <input id="search-input" type="text" placeholder=" Search tokens or coins here...">
+                <ul id="suggestions" class="suggestions"></ul>
+            </div>
+        <!--DROPDOWN MENU(S)-->
+            <div class="icon-container">
+                <div class="dropdown">
+                    <i class="fa-solid fa-circle-user" id="wallet-dropdown"></i>
+                    <div id="wallet-menu" class="dropdown-menu">
+                        <pre><a href="/ac-info"><i class="fa-solid fa-money-bills"></i> Account</a></pre>
+                        <pre><a href="/login" target="_blank"><i class="fa-solid fa-right-to-bracket"></i> Login</a></pre>
+                        <pre><a href="/profile"><i class="fa-solid fa-user"></i> Profile</a></pre>
+                        <pre><a href="/notify"><i class="fa-solid fa-message"></i> Notifications</a></pre>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <i class="fa-solid fa-list-ul" id="dropdown-toggle"></i>
+                    <div id="dropdown-menu" class="dropdown-menu">
+                        <pre><a href="/help" target="_blank"><i class="fa-solid fa-headset"></i> Help</a></pre>
+                        <pre><a href="/Docs" target="_blank"><i class="fa-solid fa-circle-info"></i> Info</a></pre>
+                        <pre><a href="/security"><i class="fa-solid fa-fingerprint"></i> Security</a></pre>
+                        <pre><a href="/settings"><i class="fa-solid fa-gear"></i> Settings</a></pre>
+                        <pre><a href="/wallet"><i class="fa-solid fa-wallet"></i> Wallet</a></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+      <!--MARKET PRICES AND MAIN CONTENT-->
+        <hr>
+        <div class="market-section">
+            <h2>Market Prices</h2>
+            <br>
+            <hr>
+            <div class="market-table">
+                <div class="table-header">
+                    <span class="name">Name</span>
+                    <span class="price">Last Price / 24h Volume</span>
+                    <span class="cap">Total Vol</span>
+                </div>
+                <div id="market-rows"></div>
+            </div>
+            <div class="view-more">
+                <a href="#" id="view-more-btn">View More</a>
+            </div>
+            <div class="show-all" style="display:none">
+              <a href="#" >show default</a>
+            </div>
+            <br>
+            <hr id="hrhr">
+            <div class="floating-navbar">
+                <a href="/market-prices">Market Cap</a>
+                <a href="/swap-page">Swap</a>
+                <a href="/trd">Trade</a>
+                <a href="/chat">P2P Chat</a>
+                <a href="/liq">Liquidity</a>
+            </div>
+        </div>
+        <div class="chart-container">
+          <div class="coin-info">
+            <img id="coin-logo" src="" alt="Coin Logo" class="coin-logo">
+             <span id="coin-name" class="coin-name"></span>
+          </div>
+          <canvas id="price-chart"></canvas>
+        </div>
+    </main>
+    <!--FOOTER AND LINKS-->
+    <footer>
+        <p>© 2025 Bit Venus Swap. All rights reserved.</p>
+        <a href="/p2p_docs" target="_blank">P2P chat docs and scam detection documentation</a>
+        <br>
+        <br>
+        <a href="/troubleshoot" target="_blank">Troubleshoot</a>|<a href="/terms_of_use" target="_blank" p>Terms of Use</a>|<a href="/Docs" target="_blank">Docs</a>|<a href="/feedback" target="_blank">Feedback</a>|<a href="/Privacy_policy" target="_blank">Privacy Policy</a>|<a href="/help" target="_blank">Help</a>
+        <br><br>
+        <a href="#"><i class="fa-brands fa-discord"></i> Discord</a>
+        <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
+        <a href="#"><i class="fa-brands fa-reddit"></i> Reddit</a>
+        <br><br>
+        <a href="#"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <a href="#"><i class="fa-brands fa-telegram"></i> Telegram</a>
+        <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+        <a href="#"><i class="fa-brands fa-github"></i> Github</a>
+    </footer>
+     <script src="{{ url_for('static' , filename='Home.js')}}"></script>
+</body>
+</html>
